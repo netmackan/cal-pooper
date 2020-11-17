@@ -1,5 +1,5 @@
 /*
- * Copyright 2020 user.
+ * Copyright 2020 Markus Kilås <markus@kilas.se>.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,7 +17,7 @@ package com.markuspage.calpooper.sample1;
 
 /**
  *
- * @author user
+ * @author Markus Kilås <markus@kilas.se>
  */
 public class Main {
 
@@ -25,7 +25,7 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        System.out.println("Hello World!");
     }
     
 }
