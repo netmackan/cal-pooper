@@ -10,4 +10,11 @@
     <artifactId>cal-pooper-ical</artifactId>
     <packaging>jar</packaging>
     <name>Cal Pooper - iCal Extractor</name>
+    <dependencies>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 </project>
