@@ -9,3 +9,5 @@ jobs:
       uses: snyk/actions/maven-3-jdk-11@master
       env:
         SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+      with:
+        file: cal-pooper-parent
