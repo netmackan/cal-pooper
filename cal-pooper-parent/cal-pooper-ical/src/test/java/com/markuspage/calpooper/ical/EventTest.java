@@ -15,6 +15,12 @@
  */
 package com.markuspage.calpooper.ical;
 
+import java.time.ZoneId;
+import java.time.chrono.IsoChronology;
+import java.time.format.DateTimeFormatter;
+import static java.time.format.DateTimeFormatter.ISO_LOCAL_DATE_TIME;
+import java.time.format.DateTimeFormatterBuilder;
+import java.time.format.ResolverStyle;
 import java.util.Date;
 import java.util.Properties;
 import org.junit.jupiter.api.AfterEach;
@@ -32,6 +38,15 @@ import org.junit.jupiter.params.provider.CsvSource;
  */
 public class EventTest {
     
+    private static final DateTimeFormatter ISO_DATE_TIME_WITHOUT_ZONE_REGION_ID = new DateTimeFormatterBuilder()
+        .append(ISO_LOCAL_DATE_TIME)
+        .optionalStart()
+        .appendOffsetId()
+        .optionalStart()
+        .toFormatter()
+        .withResolverStyle(ResolverStyle.STRICT)
+        .withChronology(IsoChronology.INSTANCE);
+
     private static final Properties defaultProperties = new Properties();
     
     public EventTest() {
@@ -64,12 +79,12 @@ public class EventTest {
     /**
      * Test of getStartDate method, of class Event.
      * @param calDate Date in iCal format
-     * @param expected Expected date in Java Date format
+     * @param expected Expected date in ISO format
      */
     @ParameterizedTest(name = "Start date {0} = {1}")
     @CsvSource({
-        "20201113T090000Z, Fri Nov 13 10:00:00 CET 2020",
-        "20200908T201314Z, Tue Sep 08 22:13:14 CEST 2020",
+        "20201113T090000Z, 2020-11-13T10:00:00+01:00",
+        "20200908T201314Z, 2020-09-08T22:13:14+02:00",
     })
     public void testGetStartDate(String calDate, String expected) {
         System.out.println("getStartDate");
@@ -79,7 +94,7 @@ public class EventTest {
         
         Event instance = new Event(properties);
         Date result = instance.getStartDate();
-        assertEquals(expected, result.toString());
+        assertEquals(expected, ISO_DATE_TIME_WITHOUT_ZONE_REGION_ID.format(result.toInstant().atZone(ZoneId.of("Europe/Stockholm"))));
     }
     
 }
