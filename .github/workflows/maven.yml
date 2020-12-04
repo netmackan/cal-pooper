@@ -22,7 +22,3 @@ jobs:
         java-version: 11
     - name: Build with Maven
       run: mvn -B package --file cal-pooper-parent/pom.xml
-    - name: Coveralls
-      uses: coverallsapp/github-action@v1.1.2
-      with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
