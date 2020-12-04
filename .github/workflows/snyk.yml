@@ -10,4 +10,4 @@ jobs:
       env:
         SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
       with:
-        args: --file=cal-pooper-parent/pom.xml
+        args: --all-sub-projects --file=cal-pooper-parent/pom.xml
