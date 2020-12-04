@@ -10,4 +10,4 @@ jobs:
       env:
         SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
       with:
-        file: cal-pooper-parent
+        args: --file cal-pooper-parent
