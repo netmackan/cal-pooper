@@ -9,7 +9,7 @@
     <groupId>com.markuspage.calpooper</groupId>
     <artifactId>cal-pooper-ical</artifactId>
     <packaging>jar</packaging>
-    <name>Cal Pooper - iCal Extractor</name>
+    <name>Cal Pooper - iCal Extractor - Library</name>
     <dependencies>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
