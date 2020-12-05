@@ -64,7 +64,7 @@
     </build>
     <modules>
         <module>cal-pooper-ical</module>
-        <module>cal-pooper-sample1</module>
+        <module>cal-pooper-ical-cli</module>
     </modules>
     <reporting>
         <plugins>
